@@ -1,14 +1,13 @@
-import React from 'react'
-import RepositoriesItem from './RepositoriesItem/RepositoriesItem'
+import React from 'react';
+import RepositoriesItem from './RepositoriesItem';
 
-function RepositoriesList() {
+function RepositoriesList({ name, description, html_url }) {
     return (
-        <ul className="followers__list">
+        <ul className="repositories__list">
             <RepositoriesItem />
         </ul>
-
     )
-}
+};
 
-export default RepositoriesList
+export default RepositoriesList;
 

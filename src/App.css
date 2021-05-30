@@ -6,11 +6,6 @@ body {
     background-color: #e5e5e5;
 }
 
-.wrapper {
-    overflow: hidden;
-    min-height: 100%;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -43,29 +38,41 @@ h6 {
     font-weight: normal;
 }
 
-/* $blue: "#0064EB"; */
+.wrapper {
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 320px;
 
-.header {
-    height: 75px;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+.app-header {
+    height: 72px;
     background-color: #0064eb;
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
-.github-icon {
+.app-header__git-icon {
     background-image: url(../src/assets/icons/github.svg);
     background-repeat: no-repeat;
     background-size: 40px 40px;
     margin-right: 22px;
 }
 
-.form-search__input {
-    width: 500px;
+.input-search {
+    width: 50%;
     height: 40px;
     border-radius: 6px;
-    border-width: none;
     padding: 8px 44px;
+    border: none;
     outline: none;
     background-image: url(../src/assets/icons/search.svg);
     background-repeat: no-repeat;
@@ -73,23 +80,26 @@ h6 {
     background-position: 19px center;
 }
 
-.user {
-    position: relative;
+.app-user__page {
+    display: flex;
+    flex-direction: row;
+}
+
+.app-user__info {
     display: flex;
     flex-direction: column;
     min-width: 320px;
-    padding: 2%;
 }
 
-.user__avatar {
+.app-user__avatar {
     width: 280px;
     height: 280px;
+    margin-bottom: 30px;
 }
 
-.user__avatar-pic {
+.app-user__avatar-pic {
     border-radius: 50%;
     overflow: hidden;
-    background-image: url(../src/assets/man.png);
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -97,30 +107,147 @@ h6 {
     object-position: center;
 }
 
-.user__fullname {
+.app-user__fullname {
     font-weight: 600;
     font-size: 26px;
+    margin-bottom: 12px;
+}
+.app-user__username {
+    margin-bottom: 36px;
+    color: #0064eb;
 }
 
-.followers__list {
+.app-user-followers__list {
     display: flex;
-    flex-direction: row;
+    
+
 }
 
-.followers-list__item {
+.app-user-followers__item {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
-.followers__pic,
-.following__pic {
+.followers__icon,
+.following__icon {
     display: inline-flex;
     width: 24px;
     height: 24px;
 }
 
-.following__amount,
-.followers__amount {
+.following__count,
+.followers__count {
     font-size: 16px;
 }
 
+.repositories-section {
+    flex: 1;
+    margin-left: 30px;
+}
+
+.repositories__title {
+    display: block;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.repositories__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.reposetiries-list__item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 32px;
+    background-color: #fff;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.repository-item__name {
+    color: #0064eb;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.repository-item__description {
+    font-size: 16px;
+}
+
+.initial-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.initial-wrap {
+    width: 210px;
+    height: 196px;
+    display: inline-block;
+    cursor: pointer;
+}
+.initial-wrap:hover {
+    transform: scale(1.1);
+    transition: 0.7s;
+}
+
+.img-wrap {
+    display: flex;
+}
+
+.initial-state__pic {
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 64.17px;
+    height: 64.17px;
+}
+
+.initial-state__desc {
+    text-align: center;
+    color: #888;
+}
+
+/* media */
+
+@media screen and (max-width: 768px) {
+    .container-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .app-header__git-icon{
+        margin-right: 2v;
+    }
+
+    .app-user__info {
+        display: flex;
+        align-items: center;
+    }
+
+    .input-search {
+        width: 100%;
+    }
+
+    .app-user-followers__list {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .repositories__title {
+        margin: 30px 0;
+    }
+
+    .repositories-section {
+        margin-left: 0;
+    }
+}

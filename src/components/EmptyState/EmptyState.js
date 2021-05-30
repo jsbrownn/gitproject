@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 function EmptyState() {
     return (
         <div className="empty-state">
-            <img src="#" className="empty-state__pic"/>
+            <img src="#" className="empty-state__pic" />
         </div>
     )
 }
 
-export default EmptyState
+export default EmptyState;

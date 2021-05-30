@@ -1,13 +1,15 @@
-import UserAside from './UserAside/UserAside';
+import React from 'react';
+import UserInfo from '../UserPage/UserInfo';
 import RepositoriesSection from './RepositoriesSection/RepositoriesSection';
 
-const UserPage = () => {
+const UserPage = ({ user, repos}) => {
+    
     return (
-        <div className='user-page'>{
-            <>
-                <UserAside />
-                <RepositoriesSection />
-            </>
+        <div className='app-user__page'>{
+            <div className="container container-page">
+                <UserInfo user={user} />
+                <RepositoriesSection repos={repos} />
+            </div>
         }
         </div>
     );

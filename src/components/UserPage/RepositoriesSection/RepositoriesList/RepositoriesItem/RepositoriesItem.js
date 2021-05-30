@@ -1,17 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-function RepositoriesItem() {
+
+function RepositoriesItem({ name, description, html_url }) {
     return (
-        <li class="reposetiries-list__item">
-            <>
-                <h4 class="repository-item__name">repository name</h4>
-                <div class="repository-item__description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe hic aperiam, eum
-                    repellat sunt quisquam similique f
+        <li className="reposetiries-list__item">
+            <a
+                href={html_url}
+                className="repository-item__name"
+                target="_blank"
+                rel="noopener noreferrer"  //атрибут необходим для устранения уязвимости атрибута target//
+            >
+                {name}
+            </a>
+            <div className="repository-item__description">
+               { description}
                 </div>
-            </>
         </li>
+
     )
 }
 
-export default RepositoriesItem
+export default RepositoriesItem;

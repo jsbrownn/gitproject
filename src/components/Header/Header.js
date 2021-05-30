@@ -1,19 +1,20 @@
 import React from 'react';
-import github from './../../assets/icons/github.svg';
-import FormSearch from './FormSearch/FormSearch';
+import github from '../../assets/icons/github.svg';
+import Input from '../Input';
 
-function Header() {
+function Header({ onEnterClick },{onKeyPress}) {
     return (
-        <header className="header">
-        <>
-            <a href="github.com" className="header__logo-link" target="_blank">
-                <img src={github} className="github-icon" alt='github' /> 
-                
-            </a>
-            <FormSearch />
-        </>
-    </header>
+        <header className="app-header">
+            <div className="container">
+                <a href="github.com" className="app-header__link" target="_blank">
+                    <img src={github} className="app-header__git-icon" alt='github' />
+                </a>
+                <Input onEnterClick={onEnterClick}
+                        onKeyPress={onKeyPress} 
+                        />
+            </div>
+        </header>
     );
 }
 
-export default Header
+export default Header;
