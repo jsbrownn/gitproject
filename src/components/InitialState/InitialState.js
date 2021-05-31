@@ -17,6 +17,6 @@ function InitialState() {
         </div >
 
     );
-}
+};
 
-export default InitialState;
+export default  InitialState;

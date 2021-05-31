@@ -1,11 +1,22 @@
 import React from 'react';
 import RepositoriesItem from './RepositoriesItem';
 
-function RepositoriesList({ name, description, html_url }) {
+function RepositoriesList({ repos }) {
+    console.log(repos.data);
+
+
     return (
         <ul className="repositories__list">
-            <RepositoriesItem />
-        </ul>
+                {/* {repos.data.map((item) => (   */}
+                    <RepositoriesItem
+                    // key = {item.id }
+                    // name={item.name}
+                    // description={ item.description}
+                    // html_url={ item.html_url}
+                    />
+                        ))};
+            
+            </ul>
     )
 };
 

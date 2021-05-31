@@ -1,11 +1,11 @@
 import React, { Components, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import EmptyState from './components/EmptyState';
 import InitialState from './components/InitialState';
+import EmptyState from './components/EmptyState';
 import UserPage from './components/UserPage/';
 import { Octokit } from "@octokit/rest";
-import ReactPaginate from 'react-paginate';
+
 
 
 
@@ -15,27 +15,25 @@ const octokit = new Octokit();
 
 function App() {
 
-
+    const [InitialState, setInitialState] = useState(true);
     const [user, setUser] = useState({});
     const [repos, setRepos] = useState({});
 
 
+
     async function onEnterClick(value) {
+
         if (value) {
             const userData = await fetchData(value);
             if (userData.data) {
-                setUser(userData.data)
-
+                setUser(userData.data);
+                setInitialState(false);
             };
 
             if (userData.data.public_repos > 0) {
                 const repos = await fetchRepos(value);
-                console.log(repos);
                 setRepos(repos)
             }
-
-
-
 
         } else {
             alert('Введите имя пользователя');
@@ -63,64 +61,39 @@ function App() {
     };
 
 
+    const renderMainSection = () => {
 
+        if (InitialState) {
+            return (
+                <InitialState />
+            );
+        };
 
-
-
-
-
-    return (
-        <div className="wrapper">
-            <>
-                <Header onEnterClick={onEnterClick} />
-                {/* <EmptyState /> */}
-                {/* <InitialState /> */}
+        if (user) {
+            return (
                 <UserPage
-                    user={user} repos={repos} />
-            </>
+                    user={user}
+                    repos={repos}
+                />
+            );
+        };
+
+        if (repos === 0) {
+            <EmptyState />
+        }
+
+
+
+        return (
+            <div className="wrapper">
+                <Header
+                    onEnterClick={onEnterClick}
+                />    
+            <div className="app-main">{renderMainSection()}</div>
         </div>
 
-    );
-
-
-
-
-
-    // const renderMainSection = () => {
-    //     if (initialState) {
-    //         return (
-    //             <InitialState />
-    //         );
-    //     }
-
-    //     if (user) {
-    //         return (
-    //             <UserPage
-    //                 user={user}
-    //                 repos={repos}
-    //                 perPage={perPage}
-    //                 onChangeOffset={fetchReposPerPage}
-    //                 currentPage={currentPage}
-    //                 onPageChange={setCurrentPage}
-    //                 loadingUserInfo={loadingUserInfo}
-    //                 loadingUserRepos={loadingUserRepos}
-    //             />
-    //         );
-    //     }
-
-
-
-    //     return (
-    //         <div className="wrapper">
-    //             <Header
-    //                 searchInput={searchInput}
-    //                 handleChange={handleChange}
-    //                 handleKeyPress={handleKeyPress}
-    //             />
-    //             <div className="app-main">{renderMainSection()}</div>
-    //         </div>
-    //     );
-    // };
+        )
+    };
 };
 
 export default App;
