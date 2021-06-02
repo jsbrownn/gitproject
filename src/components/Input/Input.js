@@ -22,7 +22,7 @@ function Input({ onEnterClick },{onKeyPress}) {
             name="username"
             className="input-search"
             placeholder="Enter GitHub username"
-            id="input-search"
+            id="search"
             value={value}
             onChange={handleChange}
             onKeyPress={handleKeyPress}

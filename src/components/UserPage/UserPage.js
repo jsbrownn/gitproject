@@ -7,12 +7,16 @@ const UserPage = ({ user, repos}) => {
     return (
         <div className='app-user__page'>{
             <div className="container container-page">
-                <UserInfo user={user} />
-                <RepositoriesSection repos={repos} />
+                <UserInfo user={user}/>
+                <RepositoriesSection 
+                repos={repos}
+                user={user}
+                />
             </div>
         }
         </div>
-    );
+    )
+    
 }
 
 export default UserPage;

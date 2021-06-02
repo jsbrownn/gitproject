@@ -1,21 +1,21 @@
 import React from 'react';
 
 
-function RepositoriesItem({repos}) {
-    console.log(repos);
+function RepositoriesItem({key, name , description, html_url}) {
     
+
     return (
-        <li className="reposetiries-list__item">
+        <li className="reposetiries-list__item" id={key}>
             <a
-                href="http://localhost:3000/"
+                href={html_url}
                 className="repository-item__name"
                 target="_blank"
                 rel="noopener noreferrer"  //атрибут необходим для устранения уязвимости атрибута target//
             >
-                {/* {name} */}
+                {name}
             </a>
             <div className="repository-item__description">
-               {/* { description} */}
+               { description}
                 </div>
         </li>
 
@@ -23,3 +23,10 @@ function RepositoriesItem({repos}) {
 }
 
 export default RepositoriesItem;
+
+
+// key={item.id}
+// name={item.name}
+// description={item.description}
+// html_url={item.html_url}
+// />

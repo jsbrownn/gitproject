@@ -1,8 +1,9 @@
-import React, { Components, useState } from 'react';
+
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import InitialState from './components/InitialState';
-import EmptyState from './components/EmptyState';
+// import UserNotFound from './components/UserNotFound';
 import UserPage from './components/UserPage/';
 import { Octokit } from "@octokit/rest";
 
@@ -13,9 +14,10 @@ import { Octokit } from "@octokit/rest";
 const octokit = new Octokit();
 
 
+
 function App() {
 
-    const [InitialState, setInitialState] = useState(true);
+    const [initialState, setInitialState] = useState(true);
     const [user, setUser] = useState({});
     const [repos, setRepos] = useState({});
 
@@ -33,7 +35,9 @@ function App() {
             if (userData.data.public_repos > 0) {
                 const repos = await fetchRepos(value);
                 setRepos(repos)
-            }
+            
+            
+            };
 
         } else {
             alert('Введите имя пользователя');
@@ -55,15 +59,16 @@ function App() {
 
         const repos = await octokit.request("GET /users/{username}/repos", {
             username,
-            per_page: 100
+            per_page:4,
         });
         return repos
     };
 
 
+
     const renderMainSection = () => {
 
-        if (InitialState) {
+        if (initialState) {
             return (
                 <InitialState />
             );
@@ -77,23 +82,24 @@ function App() {
                 />
             );
         };
-
-        if (repos === 0) {
-            <EmptyState />
-        }
-
+        
+    };
 
 
         return (
             <div className="wrapper">
+
                 <Header
-                    onEnterClick={onEnterClick}
-                />    
+                onEnterClick={onEnterClick}
+                />
+
             <div className="app-main">{renderMainSection()}</div>
         </div>
 
         )
-    };
+    
 };
 
 export default App;
+
+

@@ -6,7 +6,7 @@ function Header({ onEnterClick }) {
     return (
         <header className="app-header">
             <div className="container">
-                <a href="github.com" className="app-header__link" target="_blank">
+                <a href="http://github.com" className="app-header__link" target="_blank" rel="noreferrer">
                     <img src={github} className="app-header__git-icon" alt='github' />
                 </a>
                     <Input onEnterClick={onEnterClick}
