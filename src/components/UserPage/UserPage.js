@@ -11,6 +11,7 @@ const UserPage = ({ user, repos}) => {
                 <RepositoriesSection 
                 repos={repos}
                 user={user}
+                // handlePageClick = {handlePageClick}
                 />
             </div>
         }

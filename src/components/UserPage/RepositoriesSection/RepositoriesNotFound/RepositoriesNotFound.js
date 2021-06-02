@@ -5,7 +5,8 @@ function RepositoriesNotFound() {
     return (
         <div className="empty-state">
             <div className="empty-state__block" >
-                <img className="empty-state__image" src={Empty} alt="empty"/>    
+                <img className="empty-state__image" src={Empty} alt="empty"/>  
+                <div className="empty-state__desc">Repository list is empty</div>  
             </div>
         </div>
     )

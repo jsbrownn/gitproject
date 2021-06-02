@@ -1,8 +1,8 @@
 import React from 'react';
 import RepositoriesItem from './RepositoriesItem';
-import ReactPaginate from 'react-paginate';
 
-function RepositoriesList({ user, repos }) {
+
+function RepositoriesList({ repos }) {
 
 
     return (
@@ -17,20 +17,8 @@ function RepositoriesList({ user, repos }) {
                     />
                 ))}
 
-        </ul>
-            <div className="repositories_paginate">
+            </ul>
 
-                <ReactPaginate
-                    // forcePage={currentPage}
-                    marginPagesDisplayed={0}
-                    pageRangeDisplayed={4}
-                    previousLabel={"<"}
-                    nextLabel={">"}
-                    pageCount={user.public_repos / 4}
-                    // onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    activeClassName={"active"} />
-            </div>
         </>
     )
 };
