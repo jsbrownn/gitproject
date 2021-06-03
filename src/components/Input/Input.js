@@ -1,6 +1,7 @@
 import React from 'react';
+import './Input.css';
 
-function Input({ onEnterClick },{onKeyPress}) {
+function Input({ onEnterClick }) {
 
     const [value, setValue] = React.useState('')
 
@@ -14,7 +15,6 @@ function Input({ onEnterClick },{onKeyPress}) {
             onEnterClick(value)
         }
     }
-
 
     return (
         <input

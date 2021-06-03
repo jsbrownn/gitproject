@@ -1,0 +1,29 @@
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.empty-state__block {
+    width: 156px;
+    height: 165px;
+    display: inline-block;
+}
+
+.empty-state__image {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.empty-state__desc {
+    text-align: center;
+    color: #888;
+}
+
+@media screen and (max-width: 768px) {
+    .empty-state__block {
+        margin-top: 50px;
+    }
+}

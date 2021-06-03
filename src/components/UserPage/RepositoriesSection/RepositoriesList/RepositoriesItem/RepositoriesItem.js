@@ -1,32 +1,25 @@
 import React from 'react';
+import './RepositoriesItem.css'
 
-
-function RepositoriesItem({key, name , description, html_url}) {
-    
+function RepositoriesItem({ id, name, description, html_url }) {
 
     return (
-        <li className="reposetiries-list__item" id={key}>
+        <li className="reposetiries-list__item" key={id}>
             <a
                 href={html_url}
                 className="repository-item__name"
                 target="_blank"
-                rel="noopener noreferrer"  //атрибут необходим для устранения уязвимости атрибута target//
+                rel="noopener noreferrer"
             >
                 {name}
             </a>
             <div className="repository-item__description">
-               { description}
-                </div>
+                {description}
+            </div>
         </li>
-
     )
-}
+};
 
 export default RepositoriesItem;
 
 
-// key={item.id}
-// name={item.name}
-// description={item.description}
-// html_url={item.html_url}
-// />

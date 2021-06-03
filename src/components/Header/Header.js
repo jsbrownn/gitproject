@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css'
 import github from '../../assets/icons/github.svg';
 import Input from '../Input';
 
@@ -9,8 +10,8 @@ function Header({ onEnterClick }) {
                 <a href="http://github.com" className="app-header__link" target="_blank" rel="noreferrer">
                     <img src={github} className="app-header__git-icon" alt='github' />
                 </a>
-                    <Input onEnterClick={onEnterClick}
-                    />
+                <Input onEnterClick={onEnterClick}
+                />
             </div>
         </header>
     );

@@ -1,0 +1,4 @@
+.app-user__page {
+    display: flex;
+    flex-direction: row;
+}

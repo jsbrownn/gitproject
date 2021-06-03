@@ -1,0 +1,23 @@
+.user-not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.user-not-found__block {
+    width: 156px;
+    height: 165px;
+    display: inline-block;
+}
+
+.user-not-found__image {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.user-not-found__desc {
+    text-align: center;
+    color: #888;
+}

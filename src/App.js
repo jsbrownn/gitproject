@@ -19,7 +19,7 @@ const octokit = new Octokit();
 function App() {
 
     const [initialState, setInitialState] = useState(true);
-    const [username , setUsername] = useState('');
+    const [username, setUsername] = useState('');
     const [user, setUser] = useState({});
     const [repos, setRepos] = useState({});
     const [pageSelected, setPage] = useState(0);
@@ -43,7 +43,7 @@ function App() {
                 setUsername(userData.data.login);
                 setInitialState(false);
                 setUserExist(true);
-                
+
             }
 
             if (!(userData?.data)) {
@@ -70,10 +70,8 @@ function App() {
     async function handlePageClick(page) {
         setLoading(true)
         const selected = page.selected + 1
-        const repos = await fetchOtherRepos(username,selected);        
+        const repos = await fetchOtherRepos(username, selected);
         setLoading(false)
-
-        console.log(page)
         setPage(page.selected)
         setRepos(repos)
 
@@ -122,7 +120,7 @@ function App() {
 
 
     const renderMainSection = () => {
-        if (isLoading){
+        if (isLoading) {
             return (<Loader />)
         }
 
@@ -153,26 +151,27 @@ function App() {
     return (
 
         <div className="wrapper">
-            <Header
-                onEnterClick={onEnterClick}
-            />
             <div className="app-main">
+
+                <Header onEnterClick={onEnterClick} />
                 {renderMainSection()}
 
-            { (user?.public_repos > 4 && !isLoading) && (
-                <div className="repositories_paginate">
-                    <ReactPaginate
-                        forcePage={pageSelected}
-                        marginPagesDisplayed={0}
-                        pageRangeDisplayed={4}
-                        previousLabel={"<"}
-                        nextLabel={">"}
-                        pageCount={user.public_repos / 4}
-                        onPageChange={handlePageClick}
-                        containerClassName={"pagination"}
-                        activeClassName={"active"} />
-                </div>
-            )
+                {(user?.public_repos > 4 && !isLoading) && (
+                    <div className="container-paginate ontainer">
+                        <div className="repositories_paginate">
+                            <ReactPaginate
+                                forcePage={pageSelected}
+                                marginPagesDisplayed={0}
+                                pageRangeDisplayed={4}
+                                previousLabel={"<"}
+                                nextLabel={">"}
+                                pageCount={user.public_repos / 4}
+                                onPageChange={handlePageClick}
+                                containerClassName={"pagination"}
+                                activeClassName={"active"} />
+                        </div>
+                    </div>
+                )
                 }
 
             </div>

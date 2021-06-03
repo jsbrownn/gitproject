@@ -1,4 +1,5 @@
 import React from 'react';
+import './RepositoriesNotFound.css'
 import Empty from '../../../../assets/icons/empty.svg';
 
 function RepositoriesNotFound() {

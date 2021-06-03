@@ -1,12 +1,9 @@
 import React from 'react';
+import './RepositoriesSection.css';
 import RepositoriesList from './RepositoriesList';
-import RepositoriesNotFound from './RepositoriesNotFound'
+import RepositoriesNotFound from './RepositoriesNotFound';
 
 function RepositoriesSection({ repos, user }) {
-
-
-
-
 
     const checkRepos = () => {
         if (user.public_repos === 0) {
@@ -29,11 +26,8 @@ function RepositoriesSection({ repos, user }) {
     return (
         <div className="repositories-section">
             {checkRepos()}
-
         </div>
-
     );
-
 };
 
 export default RepositoriesSection;

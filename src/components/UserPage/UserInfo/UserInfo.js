@@ -1,4 +1,5 @@
 import React from "react";
+import './UserInfo.css'
 import followersIcon from "../../../assets/icons/followers.svg";
 import followingIcon from "../../../assets/icons/following.svg";
 

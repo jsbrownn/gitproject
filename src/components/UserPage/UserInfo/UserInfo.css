@@ -1,0 +1,65 @@
+.app-user__info {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+}
+
+.app-user__avatar {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 30px;
+}
+
+.app-user__avatar-pic {
+    border-radius: 50%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.app-user__fullname {
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+.app-user__username {
+    margin-bottom: 36px;
+    color: #0064eb;
+}
+
+.app-user-followers__list {
+    display: flex;
+}
+
+.app-user-followers__item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.followers__icon,
+.following__icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+}
+
+.following__count,
+.followers__count {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .app-user__info {
+        display: flex;
+        align-items: center;
+    }
+    .app-user-followers__list {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
